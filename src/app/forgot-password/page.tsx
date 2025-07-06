@@ -45,7 +45,7 @@ export default function ForgotPasswordPage() {
                 <Mail className="mx-auto h-12 w-12 text-primary mb-4" />
                 <p className="font-bold">A verification code has been sent to:</p>
                 <p className="text-muted-foreground">{email}</p>
-                <p className="text-sm mt-4">Please check your spam folder if you don't see it.</p>
+                <p className="text-sm mt-4">Please check your spam folder if you don&apos;t see it.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">

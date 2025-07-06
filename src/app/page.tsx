@@ -60,7 +60,7 @@ export default function LoginPage() {
         </CardContent>
         <CardFooter className="text-center text-sm">
           <p className="w-full">
-            Don't have an account? <Button variant="link" asChild className="p-0"><Link href="/register">Sign up</Link></Button>
+            Don&apos;t have an account? <Button variant="link" asChild className="p-0"><Link href="/register">Sign up</Link></Button>
           </p>
         </CardFooter>
       </Card>

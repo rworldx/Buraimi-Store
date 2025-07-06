@@ -1,35 +1,48 @@
-import type {Metadata} from 'next';
+// app/layout.tsx
+
+import { Playfair_Display, PT_Sans } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/Providers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 
-export const metadata: Metadata = {
+// Load fonts with next/font/google, create CSS variables for them
+const playfair = Playfair_Display({
+  weight: '700',
+  subsets: ['latin'],
+  variable: '--font-playfair',
+});
+
+const ptsans = PT_Sans({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-ptsans',
+});
+
+export const metadata = {
   title: 'Buraimi Store - Exquisite Goods from the Peninsula',
-  description: 'Discover authentic, high-quality products from Buraimi. Traditional crafts, textiles, spices, and more.',
+  description:
+    'Discover authentic, high-quality products from Buraimi. Traditional crafts, textiles, spices, and more.',
   keywords: ['Buraimi', 'Oman', 'e-commerce', 'traditional crafts', 'spices', 'textiles'],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${playfair.variable} ${ptsans.variable}`}
+    >
       <body className="font-body antialiased">
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
+            <main className="flex-grow">{children}</main>
             <Footer />
           </div>
           <Toaster />

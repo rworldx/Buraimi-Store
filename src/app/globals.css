@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* Colors */
     --background: 42 58% 92%;
     --foreground: 24 10% 20%;
     --card: 42 58% 92%;
@@ -37,8 +38,14 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Fonts */
+    --font-playfair: 'Playfair Display', serif;
+    --font-ptsans: 'PT Sans', sans-serif;
   }
+
   .dark {
+    /* Dark mode colors */
     --background: 24 10% 10%;
     --foreground: 42 58% 92%;
     --card: 24 10% 10%;
@@ -80,5 +87,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .font-body {
+    font-family: var(--font-ptsans);
+  }
+  .font-headline {
+    font-family: var(--font-playfair);
   }
 }

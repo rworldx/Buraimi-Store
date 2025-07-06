@@ -8,7 +8,7 @@ interface AuthContextType {
   user: User | null;
   login: (email: string, pass: string) => boolean;
   logout: () => void;
-  register: (name: string, email: string, pass: string) => boolean;
+  register: (name: string, email: string) => boolean; // removed pass here
   loading: boolean;
 }
 
@@ -27,7 +27,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate checking for a logged-in user from a session
     const storedUser = localStorage.getItem('buraimi-user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -49,7 +48,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem('buraimi-user');
   };
 
-  const register = (name: string, email: string, pass: string) => {
+  // Removed pass param since it’s unused
+  const register = (name: string, email: string) => {
     const newUser = { ...mockUser, name, email };
     setUser(newUser);
     localStorage.setItem('buraimi-user', JSON.stringify(newUser));

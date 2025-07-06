@@ -18,12 +18,12 @@ export default function CartPage() {
             <div className="container mx-auto px-4 py-16 text-center">
                 <ShoppingCart className="mx-auto h-24 w-24 text-muted-foreground" />
                 <h1 className="mt-8 text-4xl font-headline font-bold">Your Cart is Empty</h1>
-                <p className="mt-4 text-muted-foreground">Looks like you haven't added anything to your cart yet.</p>
+                <p className="mt-4 text-muted-foreground">Looks like you haven&apos;t added anything to your cart yet.</p>
                 <Button asChild className="mt-8">
                     <Link href="/">Continue Shopping</Link>
                 </Button>
             </div>
-        )
+        );
     }
 
     return (

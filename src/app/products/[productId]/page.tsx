@@ -1,10 +1,10 @@
 import { getProductById } from '@/lib/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+// import { Button } from '@/components/ui/button'; // unused
 import { Badge } from '@/components/ui/badge';
 import AddToCartButton from '@/components/AddToCartButton';
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
 type Props = {
   params: { productId: string }
@@ -12,7 +12,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const product = getProductById(params.productId);
   if (!product) {
