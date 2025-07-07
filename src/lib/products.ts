@@ -11,14 +11,14 @@ const products: Product[] = [
     category: 'Spices',
   },
   {
-  productId: '2',
-  name: 'Handwoven Bedouin Rug',
-  description: 'Vibrant, handcrafted textile.',
-  longDescription: 'A beautiful, one-of-a-kind rug handwoven by Bedouin artisans...',
-  price: 150.00,
-  imageUrl: '/rug.jpg',
-  category: 'Textiles',
-},
+    productId: '2',
+    name: 'Handwoven Bedouin Rug',
+    description: 'Vibrant, handcrafted textile.',
+    longDescription: 'A beautiful, one-of-a-kind rug handwoven by Bedouin artisans...',
+    price: 150.00,
+    imageUrl: '/rug.jpg',
+    category: 'Textiles',
+  },
   {
     productId: '3',
     name: 'Bahla Terracotta Pot',
@@ -63,4 +63,9 @@ export function getProducts(): Product[] {
 
 export function getProductById(id: string): Product | undefined {
   return products.find(p => p.productId === id);
+}
+
+export function getFeaturedProducts(): Product[] {
+  // just pick first 4 for example
+  return products.slice(0, 4);
 }

@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -24,6 +24,24 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  webpack: (config) => {
+    // Exclude problematic modules from client-side bundles
+    config.externals = config.externals || [];
+    config.externals.push(
+      'handlebars',
+      '@genkit-ai/core',
+      'genkit',
+      '@genkit-ai/firebase'
+    );
+    
+    return config;
+  },
+  transpilePackages: [
+    'handlebars',
+    '@genkit-ai/core',
+    'genkit',
+    '@genkit-ai/firebase'
+  ],
 };
 
 export default nextConfig;
